@@ -1209,7 +1209,7 @@ App.prototype.onSearchClick2 = function (searchTerm) {
                 resultEl.className = "search-result";
                 
                 let excerpt = result.excerpt.trim();
-                   let additionalText = ""; 
+                   let additionalText = "Общий ход эксперимента"; 
 
                 resultEl.innerHTML = `
                     <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
@@ -1346,7 +1346,7 @@ App.prototype.onSearchClick8 = function (searchTerm) {
         });
     }).catch(err => this.fatal("error searching book", err));
 };
-
+/*
 App.prototype.onSearchClick9 = function (searchTerm) {
     this.doSearch9(searchTerm).then(results => {
         const container = this.qs(".setting-content9");
@@ -1365,7 +1365,60 @@ App.prototype.onSearchClick9 = function (searchTerm) {
         });
     }).catch(err => this.fatal("error searching book", err));
 };
+*/
+App.prototype.onSearchClick9 = function (searchTerm) {
+    this.doSearch9(searchTerm)
+        .then(results => {
+            const container = this.qs(".setting-content9");
+            container.innerHTML = ""; // Очистка контейнера
 
+            results.slice(0, 10).forEach(result => {
+                let resultEl = document.createElement("div");
+                resultEl.className = "search-result";
+                
+                let excerpt = result.excerpt.trim();
+                   let additionalText = "Выводы"; 
+
+                resultEl.innerHTML = `
+                    <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
+                `;
+                resultEl.querySelector(".result-link").addEventListener("click", this.onResultClick.bind(this, result.cfi));
+                container.appendChild(resultEl);
+            });
+        })
+        .catch(err => {
+            console.error("Error searching book", err);
+            this.fatal("error searching book", err);
+        });
+};
+
+App.prototype.onSearchClick10 = function (searchTerm) {
+    this.doSearch10(searchTerm)
+        .then(results => {
+            const container = this.qs(".setting-content10");
+            container.innerHTML = ""; // Очистка контейнера
+
+            results.slice(0, 10).forEach(result => {
+                let resultEl = document.createElement("div");
+                resultEl.className = "search-result";
+                
+                let excerpt = result.excerpt.trim();
+                   let additionalText = "Направления дальнейших исследований"; 
+
+                resultEl.innerHTML = `
+                    <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
+                `;
+                resultEl.querySelector(".result-link").addEventListener("click", this.onResultClick.bind(this, result.cfi));
+                container.appendChild(resultEl);
+            });
+        })
+        .catch(err => {
+            console.error("Error searching book", err);
+            this.fatal("error searching book", err);
+        });
+};
+
+/*
 App.prototype.onSearchClick10 = function (searchTerm) {
     this.doSearch10(searchTerm).then(results => {
         const container = this.qs(".setting-content10");
@@ -1384,7 +1437,7 @@ App.prototype.onSearchClick10 = function (searchTerm) {
         });
     }).catch(err => this.fatal("error searching book", err));
 };
-
+*/
 App.prototype.onSearchClick11 = function (searchTerm) {
     this.doSearch11(searchTerm).then(results => {
         const container = this.qs(".setting-content11");
