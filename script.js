@@ -1209,7 +1209,7 @@ App.prototype.onSearchClick2 = function (searchTerm) {
                 resultEl.className = "search-result";
                 
                 let excerpt = result.excerpt.trim();
-                   let additionalText = "Общий ход эксперимента"; 
+                   let additionalText = " Общий ход эксперимента"; 
 
                 resultEl.innerHTML = `
                     <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
@@ -1377,7 +1377,7 @@ App.prototype.onSearchClick9 = function (searchTerm) {
                 resultEl.className = "search-result";
                 
                 let excerpt = result.excerpt.trim();
-                   let additionalText = "Выводы"; 
+                   let additionalText = " Выводы"; 
 
                 resultEl.innerHTML = `
                     <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
@@ -1403,7 +1403,7 @@ App.prototype.onSearchClick10 = function (searchTerm) {
                 resultEl.className = "search-result";
                 
                 let excerpt = result.excerpt.trim();
-                   let additionalText = "Направления дальнейших исследований"; 
+                   let additionalText = " Направления дальнейших исследований"; 
 
                 resultEl.innerHTML = `
                     <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
